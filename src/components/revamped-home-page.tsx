@@ -22,8 +22,8 @@ const menuShowcase = [
     description:
       "Classic chai and herbal infusions brewed fresh to deliver smooth flavor and soothing warmth.",
     image:
-      "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=1200&q=80",
-    icon: "🫖",
+      "https://www.sharmispassions.com/wp-content/uploads/2012/12/cardamom-tea3.jpg",
+    icon: "/coffee-cup.png",
   },
   {
     title: "Snacks",
@@ -338,16 +338,6 @@ export function RevampedHomePage() {
                 </span>
               </button>
               <div className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-center md:gap-1.5">
-                <div className="flex flex-wrap items-center justify-center gap-1.5">
-                  <motion.span
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.08 }}
-                    className="inline-flex rounded-full border border-white/40 bg-white/20 px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.18em] text-[#fff5bf] backdrop-blur-sm sm:text-[10px]"
-                  >
-                    Since 1999
-                  </motion.span>
-                </div>
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -362,7 +352,7 @@ export function RevampedHomePage() {
                   transition={{ duration: 0.35, delay: 0.2 }}
                   className="text-[10px] uppercase tracking-[0.24em] text-white/90 sm:text-xs md:text-sm"
                 >
-                  Brewed With Tradition
+                  BLENDED WITH TRADITIONAL
                 </motion.p>
               </div>
               <button
@@ -428,7 +418,7 @@ export function RevampedHomePage() {
               transition={{ duration: 0.4 }}
               className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]"
             >
-              Coffee shop since 1999
+              Coffee shop since 1997
             </motion.p>
             <h2 className="mb-4 text-3xl font-black uppercase leading-[1.05] sm:text-4xl lg:text-5xl">
               We Are Not Just
@@ -436,7 +426,7 @@ export function RevampedHomePage() {
               Regular Coffee Shop
             </h2>
             <p className="mb-5 text-sm leading-7 text-[#6f6258]">
-              Sivaga Coffee is born through a passion to serve a fulfilling cup with authentic taste, cozy vibe, and thoughtful ambience.
+              Sivaga Coffee Bar is born through a passion to serve a fulfilling cup with authentic taste, cozy vibe, and thoughtful ambience.
             </p>
             <ul className="space-y-2 text-sm font-black uppercase tracking-[0.12em] text-[#d22d33]">
               <li>Innovative and thoughtful</li>
@@ -452,7 +442,7 @@ export function RevampedHomePage() {
               transition={{ duration: 0.35 }}
               className="text-5xl font-black"
             >
-              10K
+              10000+
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -514,18 +504,21 @@ export function RevampedHomePage() {
               Slow-brewed South Indian filter coffee with balanced roast notes,
               velvety crema, and a warm aromatic finish.
             </p>
-            <div className="grid grid-cols-3 gap-3 text-center">
-              <div className="rounded-lg bg-white/10 p-3">
-                <p className="text-lg font-black text-[#ffd58b]">4.9</p>
-                <p className="text-[10px] uppercase tracking-widest">Rating</p>
-              </div>
-              <div className="rounded-lg bg-white/10 p-3">
-                <p className="text-lg font-black text-[#ffd58b]">18k+</p>
-                <p className="text-[10px] uppercase tracking-widest">Orders</p>
-              </div>
-              <div className="rounded-lg bg-white/10 p-3">
-                <p className="text-lg font-black text-[#ffd58b]">12 min</p>
-                <p className="text-[10px] uppercase tracking-widest">Brew</p>
+            <div className="rounded-xl border border-white/25 bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-[0.18em] text-[#f5c083]">
+                Artisan Notes
+              </p>
+              <p className="mt-2 text-sm leading-6 text-white/90">
+                Hand-roasted beans, slow decoction drip, and a silky finish
+                inspired by traditional South Indian coffee craft.
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
+                <span className="h-2 w-2 rounded-full bg-white/80" />
+                <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
+                <span className="ml-2 text-xs uppercase tracking-[0.18em] text-white/75">
+                  Freshly brewed all day
+                </span>
               </div>
             </div>
           </div>
@@ -553,13 +546,21 @@ export function RevampedHomePage() {
               <div className="absolute inset-3 rounded-2xl border border-white/35 opacity-0 transition duration-300 group-hover:opacity-100" />
 
               <div className="relative z-10 flex h-full flex-col items-center justify-end px-6 pb-8 text-center text-white">
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0.8 }}
                   whileHover={{ scale: 1.06 }}
-                  className="mb-3 text-6xl"
+                  className="mb-3"
                 >
-                  {item.icon}
-                </motion.p>
+                  {item.title === "Tea" ? (
+                    <img
+                      src={item.icon}
+                      alt="Tea icon"
+                      className="h-14 w-14 object-contain"
+                    />
+                  ) : (
+                    <p className="text-6xl">{item.icon}</p>
+                  )}
+                </motion.div>
                 <h3 className="text-4xl font-black uppercase tracking-wide">{item.title}</h3>
                 <div className="my-2 h-1 w-16 rounded-full bg-white/70" />
                 <p className="mt-2 max-h-36 overflow-hidden text-sm leading-7 text-white/95 opacity-100 transition-all duration-500 lg:mt-0 lg:max-h-0 lg:opacity-0 lg:group-hover:mt-2 lg:group-hover:max-h-36 lg:group-hover:opacity-100">
@@ -790,7 +791,7 @@ export function RevampedHomePage() {
               <div className="overflow-hidden rounded-2xl border border-[#d8d1c7] bg-white p-2 shadow-lg">
                 <div className="h-full min-h-[320px] overflow-hidden rounded-xl">
                   <iframe
-                    title="Sivaga Coffee Office Map"
+                    title="Sivaga Coffee Bar Office Map"
                     src="https://www.openstreetmap.org/export/embed.html?bbox=79.0400%2C12.2000%2C79.1100%2C12.2700&layer=mapnik&marker=12.2253%2C79.0747"
                     className="h-full w-full border-0"
                     loading="lazy"
@@ -890,9 +891,9 @@ export function RevampedHomePage() {
                 <h4 className="mb-1 text-3xl font-black uppercase leading-tight text-[#231c16]">
                   Welcome To
                   <br />
-                  Sivaga Coffee
+                  Sivaga Coffee Bar
                 </h4>
-                <p className="mb-4 text-sm text-[#5f554c]">Fuel your dreams with Sivaga Coffee</p>
+                <p className="mb-4 text-sm text-[#5f554c]">Fuel your dreams with Sivaga Coffee Bar</p>
                 <div className="mb-4 flex justify-center">
                   <CoffeeBeanIcon className="h-4 w-4 text-[#4e4238]" />
                 </div>
@@ -955,7 +956,7 @@ export function RevampedHomePage() {
               <div className="mb-3 grid h-16 w-16 place-items-center overflow-hidden rounded-full border border-white/20 bg-white/5">
                 <img src="/logo.png" alt="Sivaga Coffee Bar" className="h-full w-full object-contain" />
               </div>
-              <p className="text-sm text-white/75">Sivaga Coffee customers enjoy exceptional quality and a unique coffee experience in every cup.</p>
+              <p className="text-sm text-white/75">Sivaga Coffee Bar customers enjoy exceptional quality and a unique coffee experience in every cup.</p>
             </div>
             <div>
               <h4 className="mb-3 text-xl font-black uppercase">Contact Us</h4>
@@ -992,7 +993,7 @@ export function RevampedHomePage() {
             </div>
           </div>
           <div className="mx-auto mt-8 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2026 Sivaga Coffee. All Rights Reserved.</p>
+            <p>© 2026 Sivaga Coffee Bar. All Rights Reserved.</p>
           </div>
         </footer>
       </main>

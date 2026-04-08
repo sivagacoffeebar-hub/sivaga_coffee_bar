@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 
 export function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement | null>(null);
-  const ringRef = useRef<HTMLDivElement | null>(null);
+  const sparkRef = useRef<HTMLDivElement | null>(null);
+  const beanRef = useRef<HTMLDivElement | null>(null);
   const target = useRef({ x: -100, y: -100 });
   const current = useRef({ x: -100, y: -100 });
 
@@ -28,12 +28,12 @@ export function CustomCursor() {
       const angle = Math.atan2(dy, dx) * (180 / Math.PI);
       const squeeze = Math.min(speed / 120, 0.12);
 
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${target.current.x}px, ${target.current.y}px, 0)`;
+      if (sparkRef.current) {
+        sparkRef.current.style.transform = `translate3d(${target.current.x}px, ${target.current.y - 8}px, 0)`;
       }
 
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0) rotate(${angle}deg) scale(${1 + squeeze}, ${1 - squeeze})`;
+      if (beanRef.current) {
+        beanRef.current.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0) rotate(${angle}deg) scale(${1 + squeeze}, ${1 - squeeze})`;
       }
 
       rafId = window.requestAnimationFrame(tick);
@@ -50,13 +50,15 @@ export function CustomCursor() {
   return (
     <div aria-hidden className="pointer-events-none fixed left-0 top-0 z-[220] hidden md:block">
       <div
-        ref={dotRef}
-        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff1a2c]"
+        ref={sparkRef}
+        className="absolute h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#e8b06b]/95 blur-[0.2px]"
       />
       <div
-        ref={ringRef}
-        className="absolute h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#ff1a2c]/80"
-      />
+        ref={beanRef}
+        className="absolute h-6 w-6 -translate-x-1/2 -translate-y-1/2"
+      >
+        <img src="/coffee-bean.png" alt="" className="h-full w-full object-contain" />
+      </div>
     </div>
   );
 }
