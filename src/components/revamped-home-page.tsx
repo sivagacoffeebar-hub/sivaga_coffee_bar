@@ -267,7 +267,7 @@ export function RevampedHomePage() {
                   transition={{ duration: 0.45, delay: 0.15 }}
                   className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-[#2d251f] sm:text-sm"
                 >
-                  Brewing Since 1999
+                  Brewing Since 1997
                 </motion.p>
                 <div className="pointer-events-none absolute -top-6 left-1/2 h-3 w-3 -translate-x-16 rounded-full bg-[#fff7c4]/80" />
                 <motion.div
