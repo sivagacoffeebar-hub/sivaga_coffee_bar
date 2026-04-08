@@ -1,13 +1,13 @@
 "use client";
 
-import { MapPin, Menu, Phone, Store, X } from "lucide-react";
+import { MapPin, Phone, X } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CustomCursor } from "./custom-cursor";
 import { SmoothScroll } from "./smooth-scroll";
 
-const navItems = ["HOME", "COMPANY", "MENU", "GALLERY", "FRANCHISE", "CONTACT"];
-const navTargets = ["hero", "company", "menu", "gallery", "franchise", "contact"];
+const navItems = ["HOME", "COMPANY", "MENU", "GALLERY", "CONTACT"];
+const navTargets = ["hero", "company", "menu", "gallery", "contact"];
 const menuShowcase = [
   {
     title: "Coffee",
@@ -102,15 +102,6 @@ export function RevampedHomePage() {
   const collageInView = useInView(collageRef, { once: true, margin: "-10%" });
   const [layoutStep, setLayoutStep] = useState(0);
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<string | null>(null);
-  const [franchiseForm, setFranchiseForm] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    location: "",
-    propertyType: "",
-    openingPlan: "",
-  });
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
 
   const collageLayouts = [
     [
@@ -173,16 +164,6 @@ export function RevampedHomePage() {
 
   const goToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const onFranchiseFieldChange = (field: keyof typeof franchiseForm, value: string) => {
-    setFranchiseForm((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const onFranchiseSubmit = () => {
-    if (!franchiseForm.fullName || !franchiseForm.phone || !franchiseForm.location) return;
-    setSubmitStatus("success");
-    window.setTimeout(() => setSubmitStatus("idle"), 2600);
   };
 
   const onHeroWheel = (event: React.WheelEvent<HTMLElement>) => {
@@ -264,42 +245,59 @@ export function RevampedHomePage() {
             <div className="absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-[#ffec99]/45 blur-xl" />
             <div className="absolute -bottom-8 right-1/3 h-28 w-28 rounded-full bg-[#ffec99]/45 blur-xl" />
           </div>
-          <div className="relative z-10 mb-3 flex items-center justify-between text-xs font-semibold uppercase tracking-widest">
-            <p className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5" />
-              Corporate Office - 17/16B, Chennai
+          <div className="relative z-10 mb-3 flex flex-col gap-2 text-[10px] font-semibold uppercase tracking-widest text-white/95 sm:flex-row sm:items-center sm:justify-between sm:text-xs">
+            <p className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+              <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span className="truncate">Corporate Office - 17/16B, Chennai</span>
             </p>
-            <p className="flex items-center gap-2">
-              <Store className="h-3.5 w-3.5" />
-              Franchise Enquiry : (+91) 90907 40907
+            <p className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+              <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <a href="tel:+919090740907" className="whitespace-nowrap underline-offset-2 hover:underline">
+                (+91) 90907 40907
+              </a>
             </p>
           </div>
-          <div className="relative z-10 mb-8 flex items-center justify-between rounded-[2rem] bg-[#ef2332] px-6 py-4">
-            <div className="flex items-center gap-3">
-              <div className="grid h-14 w-14 place-items-center rounded-full border-2 border-white bg-[#f51423] text-center text-[9px] font-black leading-tight">
-                SIVAGA
-                <br />
-                COFFEE
-              </div>
+          <div className="relative z-10 mb-6 flex w-full max-w-full flex-col rounded-2xl bg-[#ef2332] px-3 py-2.5 sm:mb-8 sm:rounded-[2rem] sm:px-5 sm:py-3.5 md:px-6 md:py-4">
+            <div className="grid min-h-[3.25rem] w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 gap-y-1 sm:min-h-0 sm:gap-x-3">
               <button
+                type="button"
                 onClick={() => setMenuOpen(true)}
-                className="rounded-full p-2 transition hover:bg-white/10"
+                aria-label="Open menu"
+                className="shrink-0 justify-self-start rounded-full transition hover:ring-2 hover:ring-white/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
               >
-                <Menu className="h-5 w-5" />
+                <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-full border-2 border-white bg-white sm:h-12 sm:w-12 md:h-14 md:w-14">
+                  <img
+                    src="/logo.png"
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </span>
               </button>
-            </div>
-            <div className="hidden items-center gap-10 text-xs font-black tracking-[0.2em] md:flex">
-              {navItems.map((item, idx) => (
-                <button
-                  key={item}
-                  onClick={() => goToSection(navTargets[idx])}
-                  className="transition hover:text-[#ffe6a8]"
+              <div className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-center md:gap-1.5">
+                <p className="w-full max-w-[18rem] truncate px-1 text-[11px] font-black uppercase leading-tight tracking-[0.06em] text-[#fff2b8] sm:max-w-none sm:text-xs sm:tracking-[0.1em] md:text-sm md:tracking-[0.12em]">
+                  Sivaga Coffee Bar
+                </p>
+                <nav
+                  className="hidden flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] font-black uppercase tracking-[0.12em] text-white lg:gap-x-5 lg:text-xs lg:tracking-[0.18em] xl:gap-x-8 md:flex"
+                  aria-label="Primary navigation"
                 >
-                  {item}
-                </button>
-              ))}
+                  {navItems.map((item, idx) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => goToSection(navTargets[idx])}
+                      className="shrink-0 rounded-md px-0.5 py-1 transition hover:text-[#fff2b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+              <div
+                className="pointer-events-none h-11 w-11 shrink-0 justify-self-end opacity-0 sm:h-12 sm:w-12 md:h-14 md:w-14"
+                aria-hidden
+              />
             </div>
-            <div className="w-14" />
           </div>
           <div className="absolute bottom-14 left-0 z-10 flex w-full justify-center gap-3">
             {heroSlides.map((_, index) => (
@@ -537,97 +535,6 @@ export function RevampedHomePage() {
           </div>
         </section>
 
-        <section id="franchise" className="relative mx-auto max-w-7xl overflow-hidden px-4 py-14 text-center md:px-12">
-          <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl border border-[#d7e9d1] bg-[radial-gradient(circle_at_16%_20%,rgba(131,188,109,0.32),transparent_35%),radial-gradient(circle_at_88%_78%,rgba(82,148,73,0.26),transparent_40%),linear-gradient(135deg,#f4ffe9,#e7f7df_45%,#f2fff0)]" />
-          <div className="pointer-events-none absolute -left-12 top-10 z-10 hidden h-48 w-48 rounded-full border border-[#98c38d]/50 bg-[radial-gradient(circle,#d9f0d2_0%,#c4e6b8_55%,transparent_70%)] md:block" />
-          <div className="pointer-events-none absolute -left-4 top-24 z-10 hidden h-20 w-20 rounded-full border border-[#8fb584]/40 bg-[#f3ffe9] md:block" />
-          <div className="pointer-events-none absolute -right-10 top-8 z-10 hidden h-52 w-52 rounded-full border border-[#98c38d]/50 bg-[radial-gradient(circle,#d9f0d2_0%,#c4e6b8_55%,transparent_70%)] md:block" />
-          <div className="pointer-events-none absolute right-8 top-28 z-10 hidden h-16 w-16 rounded-full border border-[#8fb584]/40 bg-[#f3ffe9] md:block" />
-          <div className="pointer-events-none absolute left-[9%] top-[30%] z-10 hidden h-2 w-2 rounded-full bg-[#8fbc84] md:block" />
-          <div className="pointer-events-none absolute right-[11%] top-[34%] z-10 hidden h-2 w-2 rounded-full bg-[#8fbc84] md:block" />
-          <div className="pointer-events-none absolute left-[14%] top-[42%] z-10 hidden h-1.5 w-1.5 rounded-full bg-[#9bc88f] md:block" />
-          <div className="pointer-events-none absolute right-[16%] top-[44%] z-10 hidden h-1.5 w-1.5 rounded-full bg-[#9bc88f] md:block" />
-
-          <div className="pointer-events-none absolute inset-x-0 top-[34%] z-10 mx-auto hidden h-[1px] max-w-xl bg-gradient-to-r from-transparent via-[#8eb582]/50 to-transparent md:block" />
-          <div className="pointer-events-none absolute inset-x-0 top-[48%] z-10 mx-auto hidden h-[1px] max-w-lg bg-gradient-to-r from-transparent via-[#8eb582]/30 to-transparent md:block" />
-
-          {["☕", "🍪", "🍯", "🫖"].map((icon, idx) => (
-            <motion.span
-              key={`${icon}-${idx}`}
-              initial={{ opacity: 0.35 }}
-              animate={{ y: [0, -5, 0], opacity: [0.4, 0.75, 0.4] }}
-              transition={{ duration: 2.6, repeat: Infinity, delay: idx * 0.25 }}
-              className={`pointer-events-none absolute z-10 hidden text-xl text-[#5f8651] md:block ${
-                idx === 0
-                  ? "left-[23%] top-[24%]"
-                  : idx === 1
-                    ? "left-[26%] top-[56%]"
-                    : idx === 2
-                      ? "right-[25%] top-[24%]"
-                      : "right-[27%] top-[56%]"
-              }`}
-            >
-              {icon}
-            </motion.span>
-          ))}
-
-          <p className="relative z-20 mb-2 text-xs uppercase tracking-[0.25em] text-[#5f8651]">Let&apos;s connect</p>
-          <h3 className="relative z-20 mb-4 text-5xl font-black uppercase text-[#20341b]">Enquiry For Franchise</h3>
-          <p className="relative z-20 mx-auto mb-8 max-w-3xl text-sm leading-7 text-[#4b6544]">
-            Bring premium coffee, tea, and snacks to your neighborhood with a
-            friendly and profitable store format backed by operational guidance.
-          </p>
-          <div className="relative z-20 mx-auto grid max-w-3xl gap-3 md:grid-cols-3">
-            <input
-              placeholder="Enter your full name"
-              value={franchiseForm.fullName}
-              onChange={(e) => onFranchiseFieldChange("fullName", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-            <input
-              placeholder="Enter your email id"
-              value={franchiseForm.email}
-              onChange={(e) => onFranchiseFieldChange("email", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-            <input
-              placeholder="Enter your phone number"
-              value={franchiseForm.phone}
-              onChange={(e) => onFranchiseFieldChange("phone", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-            <input
-              placeholder="Enter your location"
-              value={franchiseForm.location}
-              onChange={(e) => onFranchiseFieldChange("location", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-            <input
-              placeholder="Property Type"
-              value={franchiseForm.propertyType}
-              onChange={(e) => onFranchiseFieldChange("propertyType", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-            <input
-              placeholder="Opening Plan"
-              value={franchiseForm.openingPlan}
-              onChange={(e) => onFranchiseFieldChange("openingPlan", e.target.value)}
-              className="rounded border border-[#cce0c4] bg-[#f5fff1] px-3 py-3 text-sm shadow-sm outline-none transition focus:border-[#7ab56a]"
-            />
-          </div>
-          <button
-            onClick={onFranchiseSubmit}
-            className="relative z-20 mt-6 rounded bg-[#4f9f4f] px-8 py-3 text-xs font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-[#2d6f2d33]"
-          >
-            Submit your Enquiry
-          </button>
-          {submitStatus === "success" && (
-            <p className="relative z-20 mt-3 text-sm font-semibold text-[#3c7f34]">
-              Thanks! We will contact you shortly.
-            </p>
-          )}
-        </section>
-
         <section id="gallery" className="mx-auto max-w-7xl px-4 py-12 md:px-12">
           <div className="mb-5 flex items-end justify-between">
             <div>
@@ -738,12 +645,35 @@ export function RevampedHomePage() {
                 <div className="relative bg-[radial-gradient(circle_at_top_right,rgba(245,20,35,0.12),transparent_42%),linear-gradient(180deg,#fbfaf8,#f1efea)] px-7 pb-7 pt-6">
                 <div className="mb-5 flex items-start justify-start">
                   <button
+                    type="button"
                     onClick={() => setMenuOpen(false)}
                     className="grid h-9 w-9 place-items-center rounded-full bg-[#f51423] text-white"
+                    aria-label="Close menu"
                   >
-                    <X className="h-4 w-4" />
+                    <X className="h-4 w-4" aria-hidden />
                   </button>
                 </div>
+                <nav
+                  className="mb-5 border-b border-[#231c16]/10 pb-4 text-left md:hidden"
+                  aria-label="Primary navigation"
+                >
+                  <ul className="space-y-0.5">
+                    {navItems.map((item, idx) => (
+                      <li key={item}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            goToSection(navTargets[idx]);
+                            setMenuOpen(false);
+                          }}
+                          className="w-full rounded-xl px-3 py-3 text-left text-sm font-black uppercase tracking-[0.12em] text-[#231c16] transition hover:bg-[#f51423]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f51423]/40"
+                        >
+                          {item}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
                 <h4 className="mb-2 text-4xl font-black uppercase leading-tight text-[#231c16]">
                   Welcome To
                   <br />
@@ -801,7 +731,9 @@ export function RevampedHomePage() {
         <footer className="bg-[#22201f] px-4 py-14 text-white md:px-12">
           <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-4">
             <div>
-              <div className="mb-3 grid h-16 w-16 place-items-center rounded-full bg-[#f51423] text-xs font-black">SCB</div>
+              <div className="mb-3 grid h-16 w-16 place-items-center overflow-hidden rounded-full border border-white/20 bg-white/5">
+                <img src="/logo.png" alt="Sivaga Coffee Bar" className="h-full w-full object-contain" />
+              </div>
               <p className="text-sm text-white/75">Sivaga Coffee customers enjoy exceptional quality and a unique coffee experience in every cup.</p>
             </div>
             <div>
@@ -812,7 +744,7 @@ export function RevampedHomePage() {
             <div>
               <h4 className="mb-3 text-xl font-black uppercase">Our Links</h4>
               <ul className="space-y-2 text-sm text-white/75">
-                {["About", "Menu", "Gallery", "Career", "Contact"].map((item) => (
+                {["Company", "Menu", "Gallery", "Contact"].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>

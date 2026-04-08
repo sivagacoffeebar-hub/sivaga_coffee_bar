@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Coffee, CupSoda, Phone, Store } from "lucide-react";
+import { Coffee, CupSoda, Phone, Store } from "lucide-react";
 import { useMemo } from "react";
 import { CustomCursor } from "./custom-cursor";
 import { SmoothScroll } from "./smooth-scroll";
@@ -204,38 +204,6 @@ export function HomePage() {
               way customers discover, order, and enjoy every cup and bite.
             </p>
           </motion.article>
-        </section>
-
-        <section className="mb-16 grid gap-6 rounded-3xl border border-white/15 p-8 md:grid-cols-2">
-          <div className="space-y-2">
-            <p className="text-sm uppercase tracking-[0.2em] text-[var(--muted)]">
-              Let&apos;s connect
-            </p>
-            <h4 className="text-3xl md:text-4xl">Enquiry for franchise</h4>
-            <p className="max-w-xl text-sm text-[var(--muted)]">
-              We will get in touch and help finalize your franchise journey with
-              Sivaga Coffee Bar.
-            </p>
-          </div>
-
-          <form className="space-y-3">
-            <input
-              className="w-full rounded-xl border border-white/15 bg-transparent px-4 py-3 text-sm outline-none transition focus:border-[var(--accent)]"
-              placeholder="Your name"
-            />
-            <input
-              className="w-full rounded-xl border border-white/15 bg-transparent px-4 py-3 text-sm outline-none transition focus:border-[var(--accent)]"
-              placeholder="Phone number"
-            />
-            <button
-              type="button"
-              data-cursor="highlight"
-              data-cursor-label="go"
-              className="flex items-center gap-2 rounded-full bg-[var(--accent)] px-5 py-2 text-sm font-medium text-black"
-            >
-              Submit enquiry <ArrowUpRight className="h-4 w-4" />
-            </button>
-          </form>
         </section>
 
         <footer className="mt-auto flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-[var(--muted)] md:flex-row md:items-center md:justify-between">
