@@ -339,12 +339,12 @@ export function RevampedHomePage() {
                   />
                 </span>
               </button>
-              <div className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-center md:gap-1.5">
+              <div className="flex min-w-0 flex-col items-center justify-center gap-0.5 text-center md:gap-1.5 overflow-hidden">
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.12 }}
-                  className="w-full px-1 text-[15px] font-black uppercase leading-tight tracking-[0.06em] text-[#fff2b8] sm:text-xl sm:tracking-[0.08em] md:text-2xl md:tracking-[0.1em] lg:text-4xl lg:tracking-[0.12em]"
+                  className="w-full text-center text-[16px] font-black uppercase leading-[1.15] tracking-[0.05em] text-[#fff2b8] sm:text-xl sm:tracking-[0.08em] md:text-2xl md:tracking-[0.1em] lg:text-4xl lg:tracking-[0.12em]"
                 >
                   Sivaga Coffee Bar
                 </motion.p>
@@ -352,7 +352,7 @@ export function RevampedHomePage() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, delay: 0.2 }}
-                  className="text-[10px] uppercase tracking-[0.24em] text-white/90 sm:text-xs md:text-sm"
+                  className="w-full text-center text-[8px] uppercase tracking-[0.22em] text-white/90 sm:text-[10px] sm:tracking-[0.24em] md:text-xs lg:text-sm lg:tracking-[0.3em]"
                 >
                   BLENDED WITH TRADITIONAL
                 </motion.p>
@@ -372,15 +372,13 @@ export function RevampedHomePage() {
               <button
                 key={`dot-${index}`}
                 onClick={() => setActiveSlide(index)}
-                className={`group relative rounded-full transition ${
-                  activeSlide === index ? "w-7" : "w-2.5"
-                } h-2.5`}
+                className={`group relative rounded-full transition ${activeSlide === index ? "w-7" : "w-2.5"
+                  } h-2.5`}
                 aria-label={`Go to slide ${index + 1}`}
               >
                 <span
-                  className={`absolute inset-0 rounded-full transition ${
-                    activeSlide === index ? "bg-white" : "bg-white/55"
-                  }`}
+                  className={`absolute inset-0 rounded-full transition ${activeSlide === index ? "bg-white" : "bg-white/55"
+                    }`}
                 />
               </button>
             ))}
@@ -410,119 +408,132 @@ export function RevampedHomePage() {
           </svg>
         </section>
 
-        <section id="company" className="relative mx-auto grid max-w-7xl gap-6 px-4 py-12 md:grid-cols-2 md:px-12 lg:grid-cols-[1.2fr_0.7fr_0.9fr]">
-          <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl border border-[#ffffffb3] bg-[radial-gradient(circle_at_12%_20%,rgba(195,125,57,0.34),transparent_40%),radial-gradient(circle_at_92%_78%,rgba(245,20,35,0.22),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,236,224,0.82))]" />
-          <div className="relative z-10">
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.7 }}
-              transition={{ duration: 0.4 }}
-              className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]"
-            >
-              Coffee shop since 1997
-            </motion.p>
-            <h2 className="mb-4 text-3xl font-black uppercase leading-[1.05] sm:text-4xl lg:text-5xl">
-              We Are Not Just
-              <br />
-              Regular Coffee Shop
-            </h2>
-            <p className="mb-5 text-sm leading-7 text-[#6f6258]">
-              Sivaga Coffee Bar is born through a passion to serve a fulfilling cup with authentic taste, cozy vibe, and thoughtful ambience.
-            </p>
-            <ul className="space-y-2 text-sm font-black uppercase tracking-[0.12em] text-[#d22d33]">
-              <li>Innovative and thoughtful</li>
-              <li>Quality and commitment</li>
-              <li>Affordable and luxurious</li>
-            </ul>
-          </div>
-          <div className="relative z-10 flex min-h-[337px] flex-col justify-center rounded-[2rem] bg-[#f51423] p-6 text-center text-white sm:p-8">
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35 }}
-              className="text-5xl font-black"
-            >
-              10000+
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35, delay: 0.08 }}
-              className="mt-2 text-xs font-black uppercase tracking-[0.2em]"
-            >
-              Happy customers every day
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35, delay: 0.14 }}
-              className="mx-auto mt-2 max-w-[20rem] text-xs leading-5 text-white/90"
-            >
-              Serving freshly brewed taste and warm hospitality from morning till
-              closing time.
-            </motion.p>
-            <div className="mb-6 mt-6 h-px w-full bg-white/30" />
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35, delay: 0.2 }}
-              className="text-5xl font-black"
-            >
-              99%
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35, delay: 0.26 }}
-              className="mt-2 text-xs font-black uppercase tracking-[0.2em]"
-            >
-              Customer satisfaction
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35, delay: 0.32 }}
-              className="mx-auto mt-2 max-w-[20rem] text-xs leading-5 text-white/90"
-            >
-              Built on consistent quality, quick service, and memorable coffee
-              moments.
-            </motion.p>
-          </div>
-          <div className="relative z-10 rounded-xl bg-[linear-gradient(145deg,#2a1f18,#4a3428)] p-6 text-white md:col-span-2 lg:col-span-1">
-            <p className="mb-2 text-xs uppercase tracking-[0.25em] text-[#f5c083]">Today&apos;s special</p>
-            <h3 className="mb-3 text-3xl font-black uppercase leading-tight">
-              Signature
-              <br />
-              Filter Blend
-            </h3>
-            <p className="mb-6 text-sm leading-6 text-white/80">
-              Slow-brewed South Indian filter coffee with balanced roast notes,
-              velvety crema, and a warm aromatic finish.
-            </p>
-            <div className="rounded-xl border border-white/25 bg-white/5 p-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-[#f5c083]">
-                Artisan Notes
-              </p>
-              <p className="mt-2 text-sm leading-6 text-white/90">
-                Hand-roasted beans, slow decoction drip, and a silky finish
-                inspired by traditional South Indian coffee craft.
-              </p>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
-                <span className="h-2 w-2 rounded-full bg-white/80" />
-                <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
-                <span className="ml-2 text-xs uppercase tracking-[0.18em] text-white/75">
-                  Freshly brewed all day
-                </span>
+        <section id="company" className="mx-auto w-full max-w-[85rem] px-4 py-12 sm:px-6 md:px-8 lg:py-16">
+          <div className="relative block flow-root rounded-[2.5rem] border border-[#ffffffb3] bg-[radial-gradient(circle_at_12%_20%,rgba(195,125,57,0.34),transparent_40%),radial-gradient(circle_at_92%_78%,rgba(245,20,35,0.22),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,236,224,0.82))] p-6 shadow-md lg:p-10 after:table after:clear-both">
+            
+            {/* Floated Magazine Cards */}
+            <div className="relative z-20 mb-8 float-none flex w-full flex-col items-stretch gap-6 sm:flex-row md:mb-6 md:ml-8 md:w-[60%] md:float-right lg:ml-12 lg:w-[55%] lg:gap-8 xl:w-[45%]">
+              
+              {/* Stats (Red Box) */}
+              <div className="flex w-full flex-col justify-center rounded-[2rem] bg-[#f51423] p-6 text-center text-white sm:p-8">
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35 }}
+                  className="text-5xl font-black"
+                >
+                  1000+
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35, delay: 0.08 }}
+                  className="mt-2 text-xs font-black uppercase tracking-[0.2em]"
+                >
+                  Happy customers every day
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35, delay: 0.14 }}
+                  className="mx-auto mt-2 max-w-[20rem] text-xs leading-5 text-white/90"
+                >
+                  Serving freshly brewed taste and warm hospitality from morning till closing time.
+                </motion.p>
+                <div className="mb-6 mt-6 h-px w-full bg-white/30" />
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35, delay: 0.2 }}
+                  className="text-5xl font-black"
+                >
+                  99%
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35, delay: 0.26 }}
+                  className="mt-2 text-xs font-black uppercase tracking-[0.2em]"
+                >
+                  Customer satisfaction
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.6 }}
+                  transition={{ duration: 0.35, delay: 0.32 }}
+                  className="mx-auto mt-2 max-w-[20rem] text-xs leading-5 text-white/90"
+                >
+                  Built on consistent quality, quick service, and memorable coffee moments.
+                </motion.p>
+              </div>
+
+              {/* Feature (Brown Box) */}
+              <div className="flex w-full flex-col justify-center rounded-[2rem] bg-[linear-gradient(145deg,#2a1f18,#4a3428)] p-6 text-white md:p-6 lg:p-8">
+                <p className="mb-2 text-xs uppercase tracking-[0.25em] text-[#f5c083]">Today&apos;s special</p>
+                <h3 className="mb-3 text-3xl font-black uppercase leading-tight">
+                  Signature
+                  <br />
+                  Filter Blend
+                </h3>
+                <p className="mb-6 text-sm leading-6 text-white/80">
+                  Slow-brewed South Indian filter coffee with balanced roast notes, velvety crema, and a warm aromatic finish.
+                </p>
+                <div className="rounded-xl border border-white/25 bg-white/5 p-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[#f5c083]">
+                    Artisan Notes
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-white/90">
+                    Hand-roasted beans, slow decoction drip, and a silky finish inspired by traditional South Indian coffee craft.
+                  </p>
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
+                    <span className="h-2 w-2 rounded-full bg-white/80" />
+                    <span className="h-2 w-2 rounded-full bg-[#ffd58b]" />
+                    <span className="ml-2 text-xs uppercase tracking-[0.18em] text-white/75">
+                      Freshly brewed all day
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Text Content */}
+            <div className="relative z-10 block">
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.7 }}
+                transition={{ duration: 0.4 }}
+                className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]"
+              >
+                Since 1997
+              </motion.p>
+              <h2 className="mb-5 text-[28px] font-black uppercase leading-[1.05] sm:text-3xl lg:text-3xl xl:text-4xl">
+                There&apos;s A Whole World
+                <br />
+                In Your Cup
+              </h2>
+              <div className="mb-6 space-y-4 text-sm leading-7 text-[#6f6258]">
+                <p>Our journey began in 1997 with a simple ambition: to start something of our own in the food industry.</p>
+                <p>In the early days, we were involved in supplying raw materials to catering services, hostel messes, and hotels. From fresh vegetables and fruits to essential items like pulses and cooking oil, we supported kitchens with quality ingredients and reliable service.</p>
+                <p>With growing experience and confidence, we took a step forward and started a small hotel and a tea stall. While these ventures helped us learn and grow, managing multiple businesses at the same time became increasingly challenging.</p>
+                <p>By 2000, we made the difficult decision to shut down all our operations and step away from the food industry entirely. We then moved on to explore opportunities in other industries, seeking stability and new directions.</p>
+                <p>However, true passion has a way of bringing you back.</p>
+                <p>Today, after 25 years, we proudly return to the food industry with a strong brand identity, enriched experience, and a clear vision for the future. This is not just a restart-it marks the beginning of a new chapter built on trust, quality, and lasting value.</p>
+              </div>
+              <ul className="space-y-3 text-sm font-black uppercase tracking-[0.12em] text-[#d22d33] clear-none">
+                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Innovative and thoughtful</li>
+                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Quality and commitment</li>
+                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Affordable and luxurious</li>
+              </ul>
+            </div>
+
           </div>
         </section>
 
@@ -586,32 +597,32 @@ export function RevampedHomePage() {
                 </h4>
               </div>
               <div className="grid grid-cols-2 gap-3">
-              {[
-                {
-                  src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=80",
-                  title: "Velvet Roast Stories",
-                },
-                {
-                  src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=1100&q=80",
-                  title: "Midnight Mocha Mood",
-                },
-                {
-                  src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1100&q=80",
-                  title: "Sunrise Sip Sessions",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={`mobile-collage-${idx}`}
-                  className={`${idx === 0 ? "col-span-2 h-56 sm:h-64 md:h-72" : "h-40 sm:h-48 md:h-56"} relative overflow-hidden rounded-2xl border-2 border-white/60 shadow-[0_12px_30px_rgba(0,0,0,0.18)]`}
-                >
-                  <img src={item.src} alt="Sivaga ambience" className="h-full w-full object-cover" />
-                  <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-3 pb-3 pt-8">
-                    <p className="inline-flex rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#2b221c] sm:text-xs md:hidden">
-                      {item.title}
-                    </p>
+                {[
+                  {
+                    src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=80",
+                    title: "Velvet Roast Stories",
+                  },
+                  {
+                    src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=1100&q=80",
+                    title: "Midnight Mocha Mood",
+                  },
+                  {
+                    src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1100&q=80",
+                    title: "Sunrise Sip Sessions",
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={`mobile-collage-${idx}`}
+                    className={`${idx === 0 ? "col-span-2 h-56 sm:h-64 md:h-72" : "h-40 sm:h-48 md:h-56"} relative overflow-hidden rounded-2xl border-2 border-white/60 shadow-[0_12px_30px_rgba(0,0,0,0.18)]`}
+                  >
+                    <img src={item.src} alt="Sivaga ambience" className="h-full w-full object-cover" />
+                    <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-3 pb-3 pt-8">
+                      <p className="inline-flex rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-[#2b221c] sm:text-xs md:hidden">
+                        {item.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
             <div
@@ -661,14 +672,14 @@ export function RevampedHomePage() {
                     animate={
                       collageInView
                         ? {
-                            x: collageLayouts[layoutStep][idx].x,
-                            y: collageLayouts[layoutStep][idx].y,
-                            width: collageLayouts[layoutStep][idx].width,
-                            height: collageLayouts[layoutStep][idx].height,
-                            rotate: collageLayouts[layoutStep][idx].rotate,
-                            zIndex: collageLayouts[layoutStep][idx].z,
-                            opacity: 1,
-                          }
+                          x: collageLayouts[layoutStep][idx].x,
+                          y: collageLayouts[layoutStep][idx].y,
+                          width: collageLayouts[layoutStep][idx].width,
+                          height: collageLayouts[layoutStep][idx].height,
+                          rotate: collageLayouts[layoutStep][idx].rotate,
+                          zIndex: collageLayouts[layoutStep][idx].z,
+                          opacity: 1,
+                        }
                         : image.enter
                     }
                     transition={{
@@ -681,7 +692,7 @@ export function RevampedHomePage() {
               </div>
             </div>
           </div>
-          <div className="relative z-10">
+          <div className="relative z-10 py-6 sm:py-8 lg:p-8 lg:pr-4">
             <p className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]">Coffeehouse vibes</p>
             <h3 className="mb-4 text-3xl font-black uppercase leading-tight sm:text-4xl lg:text-5xl">
               A Place You
@@ -765,10 +776,10 @@ export function RevampedHomePage() {
                 <p className="mb-5 text-3xl font-black uppercase leading-tight">Sivaga Coffee Bar</p>
                 <div className="space-y-4 text-sm">
                   <div>
-                    <p className="text-white/70">Address</p>
+                    <p className="text-white/70">Corporator Office</p>
                     <p className="font-medium">
-                      No 10, Santhosh Garden 2, Parvathi Nagar, Tiruvannamalai,
-                      Tamil Nadu, India - 606601
+                      No 10, Santhosh Garden 2, Parvathi Nagar,
+                      Tiruvannamalai, Tamil Nadu, India - 606603
                     </p>
                   </div>
                   <div>
@@ -781,7 +792,7 @@ export function RevampedHomePage() {
                   </div>
                 </div>
                 <a
-                  href="https://www.google.com/maps?q=No+10+Santhosh+Garden+2+Parvathi+Nagar+Tiruvannamalai+Tamil+Nadu+India+606601"
+                  href="https://www.google.com/maps?q=Corporator+Office+Tiruvannamalai+Tamil+Nadu+India+606603"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-block rounded bg-[#f51423] px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white"
@@ -880,44 +891,44 @@ export function RevampedHomePage() {
                 className="mr-auto ml-2 mt-20 w-[min(90vw,350px)] overflow-hidden rounded-[1.6rem] border border-white/40 bg-[#f7f6f3] text-center shadow-[0_18px_44px_rgba(0,0,0,0.26)] md:ml-10 md:mt-24"
               >
                 <div className="relative bg-[radial-gradient(circle_at_top_right,rgba(245,20,35,0.12),transparent_42%),linear-gradient(180deg,#fbfaf8,#f1efea)] px-5 pb-5 pt-4">
-                <div className="mb-4 flex items-start justify-start">
-                  <button
-                    type="button"
-                    onClick={() => setMenuOpen(false)}
-                    className="grid h-8 w-8 place-items-center rounded-full bg-[#f51423] text-white"
-                    aria-label="Close menu"
-                  >
-                    <X className="h-3.5 w-3.5" aria-hidden />
-                  </button>
-                </div>
-                <h4 className="mb-1 text-3xl font-black uppercase leading-tight text-[#231c16]">
-                  Welcome To
-                  <br />
-                  Sivaga Coffee Bar
-                </h4>
-                <p className="mb-4 text-sm text-[#5f554c]">Fuel your dreams with Sivaga Coffee Bar</p>
-                <div className="mb-4 flex justify-center">
-                  <CoffeeBeanIcon className="h-4 w-4 text-[#4e4238]" />
-                </div>
-                <div className="mb-5 space-y-3">
-                  <p className="text-3xl font-black text-[#e2292f]">(+91) 90922 99797</p>
-                  <p className="text-base text-[#312923]">No 10, Santhosh Garden 2, Parvathi Nagar, Tiruvannamalai</p>
-                  <p className="text-sm text-[#312923]">sivagacoffeebar@gmail.com</p>
-                </div>
-                <div className="mb-4 flex justify-center">
-                  <CoffeeBeanIcon className="h-4 w-4 text-[#4e4238]" />
-                </div>
-                <div className="flex justify-center gap-8 text-xl text-[#231c16]">
-                  <a href="#" aria-label="Facebook">
-                    f
-                  </a>
-                  <a href="#" aria-label="YouTube">
-                    ▶
-                  </a>
-                  <a href="#" aria-label="Instagram">
-                    ◎
-                  </a>
-                </div>
+                  <div className="mb-4 flex items-start justify-start">
+                    <button
+                      type="button"
+                      onClick={() => setMenuOpen(false)}
+                      className="grid h-8 w-8 place-items-center rounded-full bg-[#f51423] text-white"
+                      aria-label="Close menu"
+                    >
+                      <X className="h-3.5 w-3.5" aria-hidden />
+                    </button>
+                  </div>
+                  <h4 className="mb-1 text-3xl font-black uppercase leading-tight text-[#231c16]">
+                    Welcome To
+                    <br />
+                    Sivaga Coffee Bar
+                  </h4>
+                  <p className="mb-4 text-sm text-[#5f554c]">Fuel your dreams with Sivaga Coffee Bar</p>
+                  <div className="mb-4 flex justify-center">
+                    <CoffeeBeanIcon className="h-4 w-4 text-[#4e4238]" />
+                  </div>
+                  <div className="mb-5 space-y-3">
+                    <p className="text-3xl font-black text-[#e2292f]">(+91) 90922 99797</p>
+                    <p className="text-base text-[#312923]">No 10, Santhosh Garden 2, Parvathi Nagar, Tiruvannamalai</p>
+                    <p className="text-sm text-[#312923]">sivagacoffeebar@gmail.com</p>
+                  </div>
+                  <div className="mb-4 flex justify-center">
+                    <CoffeeBeanIcon className="h-4 w-4 text-[#4e4238]" />
+                  </div>
+                  <div className="flex justify-center gap-8 text-[#231c16]">
+                    <a href="https://www.instagram.com/sivagacoffeebar?igsh=bHhmcHVvbWFidTFz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 transition-colors hover:text-[#f51423]"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+                    </a>
+                    <a href="https://www.instagram.com/sivagacoffeebar?igsh=bHhmcHVvbWFidTFz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 transition-colors hover:text-[#f51423]"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
+                    </a>
+                    <a href="https://www.instagram.com/sivagacoffeebar?igsh=bHhmcHVvbWFidTFz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 transition-colors hover:text-[#f51423]"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -962,7 +973,7 @@ export function RevampedHomePage() {
             </div>
             <div>
               <h4 className="mb-3 text-xl font-black uppercase">Contact Us</h4>
-              <p className="text-sm text-white/75">Parvathi Nagar, Tiruvannamalai, Tamil Nadu - 606601</p>
+              <p className="text-sm text-white/75">Parvathi Nagar, Tiruvannamalai, Tamil Nadu - 606603</p>
               <p className="mt-4 text-sm text-white/75">(+91) 90922 99797</p>
             </div>
             <div>
