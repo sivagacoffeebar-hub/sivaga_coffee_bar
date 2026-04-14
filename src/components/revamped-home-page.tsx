@@ -409,13 +409,40 @@ export function RevampedHomePage() {
         </section>
 
         <section id="company" className="mx-auto w-full max-w-[85rem] px-4 py-12 sm:px-6 md:px-8 lg:py-16">
-          <div className="relative block flow-root rounded-[2.5rem] border border-[#ffffffb3] bg-[radial-gradient(circle_at_12%_20%,rgba(195,125,57,0.34),transparent_40%),radial-gradient(circle_at_92%_78%,rgba(245,20,35,0.22),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,236,224,0.82))] p-6 shadow-md lg:p-10 after:table after:clear-both">
+          <div className="relative block rounded-[2.5rem] border border-[#ffffffb3] bg-[radial-gradient(circle_at_12%_20%,rgba(195,125,57,0.34),transparent_40%),radial-gradient(circle_at_92%_78%,rgba(245,20,35,0.22),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.82),rgba(245,236,224,0.82))] p-6 shadow-md lg:p-10">
             
-            {/* Floated Magazine Cards */}
-            <div className="relative z-20 mb-8 float-none flex w-full flex-col items-stretch gap-6 sm:flex-row md:mb-6 md:ml-8 md:w-[60%] md:float-right lg:ml-12 lg:w-[55%] lg:gap-8 xl:w-[45%]">
+            {/* Text Content */}
+            <div className="relative z-10 mb-10 block lg:mb-12">
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.7 }}
+                transition={{ duration: 0.4 }}
+                className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]"
+              >
+                Since 1997
+              </motion.p>
+              <h2 className="mb-5 text-[28px] font-black uppercase leading-[1.05] sm:text-3xl lg:text-3xl xl:text-4xl">
+                There&apos;s A Whole World
+                <br />
+                In Your Cup
+              </h2>
+              <div className="mb-6 space-y-4 text-sm leading-7 text-[#6f6258] lg:w-[85%]">
+                <p>Our journey began in 1997 with a simple ambition: to start something of our own in the food industry.</p>
+                <p>In the early days, we were involved in supplying raw materials to catering services, hostel messes, and hotels. From fresh vegetables and fruits to essential items like pulses and cooking oil, we supported kitchens with quality ingredients and reliable service.</p>
+                <p>With growing experience and confidence, we took a step forward and started a small hotel and a tea stall. While these ventures helped us learn and grow, managing multiple businesses at the same time became increasingly challenging.</p>
+                <p>By 2000, we made the difficult decision to shut down all our operations and step away from the food industry entirely. We then moved on to explore opportunities in other industries, seeking stability and new directions.</p>
+                <p>However, true passion has a way of bringing you back.</p>
+                <p>Today, after 25 years, we proudly return to the food industry with a strong brand identity, enriched experience, and a clear vision for the future. This is not just a restart-it marks the beginning of a new chapter built on trust, quality, and lasting value.</p>
+              </div>
+
+            </div>
+
+            {/* Cards */}
+            <div className="relative z-20 flex w-full flex-col items-stretch gap-6 sm:flex-row lg:gap-8">
               
               {/* Stats (Red Box) */}
-              <div className="flex w-full flex-col justify-center rounded-[2rem] bg-[#f51423] p-6 text-center text-white sm:p-8">
+              <div className="flex flex-1 flex-col justify-center rounded-[2rem] bg-[#f51423] p-6 text-center text-white sm:p-8">
                 <motion.p
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -474,7 +501,7 @@ export function RevampedHomePage() {
               </div>
 
               {/* Feature (Brown Box) */}
-              <div className="flex w-full flex-col justify-center rounded-[2rem] bg-[linear-gradient(145deg,#2a1f18,#4a3428)] p-6 text-white md:p-6 lg:p-8">
+              <div className="flex flex-1 flex-col justify-center rounded-[2rem] bg-[linear-gradient(145deg,#2a1f18,#4a3428)] p-6 text-white md:p-6 lg:p-8">
                 <p className="mb-2 text-xs uppercase tracking-[0.25em] text-[#f5c083]">Today&apos;s special</p>
                 <h3 className="mb-3 text-3xl font-black uppercase leading-tight">
                   Signature
@@ -501,37 +528,6 @@ export function RevampedHomePage() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Text Content */}
-            <div className="relative z-10 block">
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.7 }}
-                transition={{ duration: 0.4 }}
-                className="mb-3 text-xs uppercase tracking-[0.25em] text-[#9f9185]"
-              >
-                Since 1997
-              </motion.p>
-              <h2 className="mb-5 text-[28px] font-black uppercase leading-[1.05] sm:text-3xl lg:text-3xl xl:text-4xl">
-                There&apos;s A Whole World
-                <br />
-                In Your Cup
-              </h2>
-              <div className="mb-6 space-y-4 text-sm leading-7 text-[#6f6258]">
-                <p>Our journey began in 1997 with a simple ambition: to start something of our own in the food industry.</p>
-                <p>In the early days, we were involved in supplying raw materials to catering services, hostel messes, and hotels. From fresh vegetables and fruits to essential items like pulses and cooking oil, we supported kitchens with quality ingredients and reliable service.</p>
-                <p>With growing experience and confidence, we took a step forward and started a small hotel and a tea stall. While these ventures helped us learn and grow, managing multiple businesses at the same time became increasingly challenging.</p>
-                <p>By 2000, we made the difficult decision to shut down all our operations and step away from the food industry entirely. We then moved on to explore opportunities in other industries, seeking stability and new directions.</p>
-                <p>However, true passion has a way of bringing you back.</p>
-                <p>Today, after 25 years, we proudly return to the food industry with a strong brand identity, enriched experience, and a clear vision for the future. This is not just a restart-it marks the beginning of a new chapter built on trust, quality, and lasting value.</p>
-              </div>
-              <ul className="space-y-3 text-sm font-black uppercase tracking-[0.12em] text-[#d22d33] clear-none">
-                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Innovative and thoughtful</li>
-                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Quality and commitment</li>
-                <li className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-[#d22d33]" /> Affordable and luxurious</li>
-              </ul>
             </div>
 
           </div>
