@@ -14,16 +14,18 @@ const menuShowcase = [
     description:
       "Single-origin and filter blends with rich aroma, balanced body, and comforting finish in every cup.",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80",
+      "/coffee.jpeg",
     icon: "☕",
+    imageClass: "object-[center_25%]",
   },
   {
     title: "Tea",
     description:
       "Classic chai and herbal infusions brewed fresh to deliver smooth flavor and soothing warmth.",
     image:
-      "https://www.sharmispassions.com/wp-content/uploads/2012/12/cardamom-tea3.jpg",
+      "/tea.jpeg",
     icon: "/coffee-cup.png",
+    imageClass: "object-[center_25%]",
   },
   {
     title: "Snacks",
@@ -32,6 +34,7 @@ const menuShowcase = [
     image:
       "https://rakskitchen.net/wp-content/uploads/2014/01/11992861243_4552794670_z-500x500.jpg",
     icon: "◉",
+    imageClass: "object-center",
   },
 ];
 const heroSlides = [
@@ -422,10 +425,10 @@ export function RevampedHomePage() {
               >
                 Since 1997
               </motion.p>
-              <h2 className="mb-5 text-[28px] font-black uppercase leading-[1.05] sm:text-3xl lg:text-3xl xl:text-4xl">
-                There&apos;s A Whole World
+              <h2 className="mb-5 text-2xl font-black uppercase leading-[1.1] sm:text-[26px] lg:text-[28px] xl:text-[32px]">
+                Fill your happiness with our
                 <br />
-                In Your Cup
+                Sivaga coffee bar
               </h2>
               <div className="mb-6 space-y-4 text-sm leading-7 text-[#6f6258] lg:w-[85%]">
                 <p>Our journey began in 1997 with a simple ambition: to start something of our own in the food industry.</p>
@@ -548,7 +551,7 @@ export function RevampedHomePage() {
               <img
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                className={`absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110 ${item.imageClass || 'object-center'}`}
               />
               <div className="absolute inset-0 bg-black/45 transition duration-500 group-hover:bg-black/58" />
 
